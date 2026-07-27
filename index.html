@@ -1,0 +1,2016 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>ДеКоМ — Агентство недвижимости, юридические услуги и оценка в Торопце</title>
+  <meta name="description" content="ООО «ДеКоМ» в г. Торопец: купля-продажа недвижимости, риелторское и юридическое сопровождение сделок, официальная оценка имущества для банков, нотариуса и суда. Телефон: +7 (910) 838-15-58.">
+  
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ==========================================================================
+       1. CSS VARIABLES & THEME ENGINE
+       ========================================================================== */
+    :root {
+      /* Light Theme */
+      --bg-primary: #F8FAFC;
+      --bg-secondary: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --bg-elevated: #F1F5F9;
+      --text-main: #0F172A;
+      --text-muted: #475569;
+      --text-subtle: #94A3B8;
+      
+      --accent: #1E3A8A; /* Deep Noble Navy Blue */
+      --accent-hover: #1E40AF;
+      --accent-light: rgba(30, 58, 138, 0.08);
+      --accent-glow: rgba(30, 58, 138, 0.25);
+      
+      --gold: #D97706; /* Accent Gold for Seals & Highlights */
+      --gold-light: rgba(217, 119, 6, 0.1);
+      
+      --border-color: #E2E8F0;
+      --border-focus: #CBD5E1;
+      
+      --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
+      --shadow-lg: 0 20px 35px -10px rgba(15, 23, 42, 0.12);
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 24px;
+      --radius-full: 9999px;
+      
+      --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      --header-height: 80px;
+    }
+
+    [data-theme="dark"] {
+      /* Premium Dark Graphite & Gold Theme */
+      --bg-primary: #0B0F19;
+      --bg-secondary: #111827;
+      --bg-card: #1E293B;
+      --bg-elevated: #334155;
+      --text-main: #F8FAFC;
+      --text-muted: #94A3B8;
+      --text-subtle: #64748B;
+      
+      --accent: #3B82F6;
+      --accent-hover: #60A5FA;
+      --accent-light: rgba(59, 130, 246, 0.15);
+      --accent-glow: rgba(59, 130, 246, 0.35);
+      
+      --gold: #F59E0B;
+      --gold-light: rgba(245, 158, 11, 0.15);
+      
+      --border-color: #1E293B;
+      --border-focus: #334155;
+      
+      --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 20px 35px -10px rgba(0, 0, 0, 0.6);
+    }
+
+    /* Reset & Base Rules */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      overflow-x: hidden !important;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button, input, select, textarea {
+      font: inherit;
+      color: inherit;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-padding {
+      padding: 90px 0;
+    }
+
+    @media (max-width: 768px) {
+      .section-padding {
+        padding: 56px 0;
+      }
+    }
+
+    /* Headings & Badges */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid var(--accent-glow);
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .section-title {
+        font-size: 28px;
+      }
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 48px auto;
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: var(--transition);
+      border: none;
+      outline: none;
+      text-align: center;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #FFFFFF;
+      box-shadow: 0 4px 16px var(--accent-glow);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px var(--accent-glow);
+    }
+
+    .btn-secondary {
+      background: var(--bg-elevated);
+      color: var(--text-main);
+      border: 1px solid var(--border-color);
+    }
+
+    .btn-secondary:hover {
+      background: var(--border-color);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    /* Fade-in Scroll Animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ==========================================================================
+       2. HEADER & NAVIGATION
+       ========================================================================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      background: rgba(248, 250, 252, 0.9);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 100;
+      transition: var(--transition);
+    }
+
+    [data-theme="dark"] .header {
+      background: rgba(11, 15, 25, 0.9);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.03em;
+      color: var(--text-main);
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      background: var(--accent-light);
+      border: 1px solid var(--accent-glow);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-size: 20px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .logo-subtitle {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-muted);
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .phone-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 15px;
+      color: var(--text-main);
+    }
+
+    .phone-link:hover {
+      color: var(--accent);
+    }
+
+    /* Theme Switcher Button */
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+      transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .theme-toggle .icon-sun { display: block; }
+    .theme-toggle .icon-moon { display: none; }
+
+    [data-theme="dark"] .theme-toggle .icon-sun { display: none; }
+    [data-theme="dark"] .theme-toggle .icon-moon { display: block; }
+
+    /* Mobile Hamburger */
+    .hamburger {
+      display: none;
+      width: 40px;
+      height: 40px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-main);
+    }
+
+    @media (max-width: 992px) {
+      .nav-links, .header-phone {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+      }
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 320px;
+      height: 100vh;
+      background: var(--bg-secondary);
+      box-shadow: var(--shadow-lg);
+      z-index: 200;
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: right 0.3s ease-in-out;
+    }
+
+    .mobile-drawer.active {
+      right: 0;
+    }
+
+    .drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 199;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+
+    .drawer-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      list-style: none;
+    }
+
+    .drawer-nav a {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* ==========================================================================
+       3. HERO SECTION
+       ========================================================================== */
+    .hero {
+      padding-top: calc(var(--header-height) + 60px);
+      padding-bottom: 90px;
+      background: radial-gradient(circle at 85% 15%, var(--accent-light) 0%, transparent 45%),
+                  radial-gradient(circle at 15% 85%, var(--gold-light) 0%, transparent 40%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (max-width: 992px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+    }
+
+    .hero-content h1 {
+      font-size: 44px;
+      font-weight: 800;
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 30px;
+      }
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .hero-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 24px;
+    }
+
+    .hero-feature-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* Hero Dynamic Preview Card */
+    .hero-preview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .preview-tabs {
+      display: flex;
+      gap: 6px;
+      background: var(--bg-elevated);
+      padding: 6px;
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+    }
+
+    .preview-tab {
+      flex: 1;
+      padding: 10px 10px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: var(--transition);
+      text-align: center;
+    }
+
+    .preview-tab.active {
+      background: var(--bg-card);
+      color: var(--accent);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .svg-viewer {
+      width: 100%;
+      height: 310px;
+      background: var(--bg-primary);
+      border-radius: var(--radius-md);
+      border: 1px dashed var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 16px;
+    }
+
+    /* ==========================================================================
+       4. KEY DIRECTIONS & PAINS
+       ========================================================================== */
+    .pains-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 24px;
+    }
+
+    .pain-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .pain-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    .pain-badge {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 4px 10px;
+      background: rgba(239, 68, 68, 0.1);
+      color: #EF4444;
+      font-size: 12px;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      margin-bottom: 14px;
+    }
+
+    .pain-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .pain-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .solution-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: rgba(16, 185, 129, 0.1);
+      color: #10B981;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      margin-top: auto;
+    }
+
+    /* ==========================================================================
+       5. DETAILED SERVICES (3 CORE SECTIONS)
+       ========================================================================== */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 32px;
+    }
+
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--accent);
+    }
+
+    .service-card.gold-header::before {
+      background: var(--gold);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--accent);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--accent-light);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      margin-bottom: 24px;
+    }
+
+    .service-title {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .service-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .service-list {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .service-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: var(--text-main);
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    /* ==========================================================================
+       6. WORKFLOW STEPS
+       ========================================================================== */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+    }
+
+    .step-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 32px 24px;
+      position: relative;
+    }
+
+    .step-num {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--accent);
+      opacity: 0.7;
+      margin-bottom: 12px;
+    }
+
+    .step-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       7. ESTIMATOR / QUIZ CALCULATOR
+       ========================================================================== */
+    .quiz-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .quiz-card {
+        padding: 24px 20px;
+      }
+    }
+
+    .quiz-step {
+      display: none;
+    }
+
+    .quiz-step.active {
+      display: block;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 28px 0 36px 0;
+    }
+
+    .quiz-option {
+      background: var(--bg-elevated);
+      border: 2px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      cursor: pointer;
+      text-align: center;
+      transition: var(--transition);
+      font-weight: 600;
+      font-size: 15px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .quiz-option:hover, .quiz-option.selected {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      color: var(--accent);
+    }
+
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      padding-top: 24px;
+    }
+
+    /* ==========================================================================
+       8. ABOUT US & STATS
+       ========================================================================== */
+    .about-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (max-width: 992px) {
+      .about-box {
+        grid-template-columns: 1fr;
+        padding: 32px;
+      }
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .stat-item {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 24px;
+    }
+
+    .stat-val {
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .stat-lbl {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* ==========================================================================
+       9. FAQ ACCORDION
+       ========================================================================== */
+    .faq-container {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .faq-header {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 16px;
+      gap: 12px;
+    }
+
+    .faq-icon {
+      width: 22px;
+      height: 22px;
+      flex-shrink: 0;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+      color: var(--accent);
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+      padding: 0 24px;
+      color: var(--text-muted);
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .faq-item.active .faq-body {
+      padding: 0 24px 20px 24px;
+      max-height: 350px;
+    }
+
+    /* ==========================================================================
+       10. CONTACTS & LOCATION
+       ========================================================================== */
+    .contacts-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+    }
+
+    @media (max-width: 992px) {
+      .contacts-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+    }
+
+    .contact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--accent-light);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    /* Footer */
+    .footer {
+      border-top: 1px solid var(--border-color);
+      padding: 40px 0 100px 0;
+      background: var(--bg-secondary);
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    @media (min-width: 769px) {
+      .footer {
+        padding-bottom: 40px;
+      }
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    /* Sticky Mobile Contact Bar (<768px) */
+    .mobile-contact-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border-color);
+      padding: 12px 16px;
+      z-index: 90;
+      box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.12);
+    }
+
+    .mobile-contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .mobile-contact-bar {
+        display: block;
+      }
+    }
+
+    /* Online Consultant Widget */
+    .consultant-widget {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 150;
+    }
+
+    @media (max-width: 768px) {
+      .consultant-widget {
+        bottom: 76px;
+        right: 16px;
+      }
+    }
+
+    .consultant-trigger {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-full);
+      background: var(--accent);
+      color: #FFFFFF;
+      border: none;
+      box-shadow: 0 8px 24px var(--accent-glow);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+    }
+
+    .consultant-trigger:hover {
+      transform: scale(1.08);
+    }
+
+    .chat-box {
+      position: absolute;
+      bottom: 72px;
+      right: 0;
+      width: 350px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+    }
+
+    .chat-box.active {
+      display: flex;
+    }
+
+    .chat-header {
+      background: var(--accent);
+      color: #FFFFFF;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chat-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      background: rgba(255, 255, 255, 0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .chat-messages {
+      padding: 16px;
+      max-height: 260px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      font-size: 14px;
+    }
+
+    .msg-bot {
+      background: var(--bg-elevated);
+      padding: 10px 14px;
+      border-radius: 12px 12px 12px 2px;
+      align-self: flex-start;
+      color: var(--text-main);
+    }
+
+    .msg-user {
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 10px 14px;
+      border-radius: 12px 12px 2px 12px;
+      align-self: flex-end;
+      font-weight: 600;
+    }
+
+    .chat-quick-replies {
+      padding: 12px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .quick-btn {
+      padding: 6px 12px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .quick-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* Modal Dialog */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.65);
+      backdrop-filter: blur(6px);
+      z-index: 250;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      box-shadow: var(--shadow-lg);
+      transform: translateY(20px);
+      transition: transform 0.3s ease;
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: translateY(0);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: transparent;
+      border: none;
+      font-size: 24px;
+      cursor: pointer;
+      color: var(--text-muted);
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 12px 16px;
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: var(--transition);
+    }
+
+    .form-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVIGATION
+       ========================================================================== -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <div class="logo-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            <line x1="12" y1="2" x2="12" y2="7" stroke="var(--gold)" stroke-width="2"></line>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="logo-title">ДеКоМ</span>
+          <span class="logo-subtitle">Недвижимость • Юруслуги • Оценка</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#pains">Решения</a></li>
+        <li><a href="#workflow">Процесс</a></li>
+        <li><a href="#calculator">Калькулятор</a></li>
+        <li><a href="#about">О&nbsp;компании</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contacts">Контакты</a></li>
+      </ul>
+
+      <div class="header-actions">
+        <a href="tel:+79108381558" class="phone-link header-phone">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          <span class="nowrap">+7 (910) 838-15-58</span>
+        </a>
+
+        <button class="theme-toggle" id="themeToggleBtn" aria-label="Переключить тему">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button class="btn btn-primary" onclick="openModal('Заказать обратный звонок')">Заказать звонок</button>
+        <button class="hamburger" id="hamburgerBtn" aria-label="Меню">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div>
+      <div class="drawer-header">
+        <span class="logo-title">Меню «ДеКоМ»</span>
+        <button class="modal-close" onclick="closeDrawer()">&times;</button>
+      </div>
+      <ul class="drawer-nav">
+        <li><a href="#services" onclick="closeDrawer()">Услуги</a></li>
+        <li><a href="#pains" onclick="closeDrawer()">Решения</a></li>
+        <li><a href="#workflow" onclick="closeDrawer()">Процесс</a></li>
+        <li><a href="#calculator" onclick="closeDrawer()">Калькулятор</a></li>
+        <li><a href="#about" onclick="closeDrawer()">О&nbsp;компании</a></li>
+        <li><a href="#faq" onclick="closeDrawer()">FAQ</a></li>
+        <li><a href="#contacts" onclick="closeDrawer()">Контакты</a></li>
+      </ul>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <a href="tel:+79108381558" class="btn btn-outline" style="width: 100%;">Позвонить +7 (910) 838-15-58</a>
+      <button class="btn btn-primary" style="width: 100%;" onclick="closeDrawer(); openModal('Консультация эксперта')">Оставить заявку</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="hero-content fade-in">
+        <div class="badge">ООО «ДеКоМ» • г. Торопец</div>
+        <h1>Недвижимость, юридические услуги и&nbsp;оценка имущества в&nbsp;Торопце</h1>
+        <p>Полный комплекс профессиональных услуг от&nbsp;опытной команды: помощь в&nbsp;купле-продаже жилья и&nbsp;земли, правовая защита сделок и&nbsp;официальная независимая оценка для&nbsp;банков, нотариуса и&nbsp;суда.</p>
+        
+        <div class="hero-actions">
+          <a href="#calculator" class="btn btn-primary">Рассчитать стоимость</a>
+          <button class="btn btn-secondary" onclick="openModal('Бесплатная первичная консультация')">Бесплатная консультация</button>
+        </div>
+
+        <div class="hero-features">
+          <div class="hero-feature-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Официальный договор</span>
+          </div>
+          <div class="hero-feature-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>100% юридическая чистота</span>
+          </div>
+          <div class="hero-feature-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Оценка по стандартам ФСО</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Dynamic Preview Interactive Component -->
+      <div class="hero-preview-card fade-in">
+        <div class="preview-tabs">
+          <button class="preview-tab active" onclick="switchTab(this, 'realty')">Недвижимость</button>
+          <button class="preview-tab" onclick="switchTab(this, 'legal')">Юруслуги</button>
+          <button class="preview-tab" onclick="switchTab(this, 'appraisal')">Оценка</button>
+        </div>
+
+        <div class="svg-viewer" id="svgViewer">
+          <!-- Dynamic SVG Vector Graphic -->
+          <svg id="dynamicSvg" width="280" height="240" viewBox="0 0 280 240" fill="none">
+            <rect x="20" y="70" width="240" height="140" rx="12" fill="var(--bg-elevated)" stroke="var(--accent)" stroke-width="2"/>
+            <path d="M140 20 L40 70 H240 Z" fill="var(--accent-light)" stroke="var(--accent)" stroke-width="2"/>
+            <rect x="60" y="100" width="45" height="45" rx="6" fill="var(--bg-card)" stroke="var(--border-color)" stroke-width="1.5"/>
+            <rect x="175" y="100" width="45" height="45" rx="6" fill="var(--bg-card)" stroke="var(--border-color)" stroke-width="1.5"/>
+            <rect x="115" y="140" width="50" height="70" rx="4" fill="var(--accent)" opacity="0.85"/>
+            <circle cx="155" cy="175" r="3" fill="#FFFFFF"/>
+            <text x="140" y="225" fill="var(--text-main)" font-weight="700" font-size="12" text-anchor="middle">КУПЛЯ-ПРОДАЖА И ОФОРМЛЕНИЕ</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       PAINS & SOLUTIONS SECTION
+       ========================================================================== -->
+  <section class="section-padding" id="pains" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="text-center fade-in">
+        <div class="badge">Безопасность сделок</div>
+        <h2 class="section-title">Каких рисков вы&nbsp;избегаете при&nbsp;обращении в&nbsp;«ДеКоМ»</h2>
+        <p class="section-subtitle">Сделки с&nbsp;недвижимостью и&nbsp;оценка требуют безупречной точности. Мы&nbsp;берем всю ответственность на&nbsp;себя.</p>
+      </div>
+
+      <div class="pains-grid">
+        <div class="pain-card fade-in">
+          <div>
+            <span class="pain-badge">Риск при самостоятельной покупке</span>
+            <h3 class="pain-title">Скрытые обременения и&nbsp;риски оспаривания</h3>
+            <p class="pain-desc">Непроверенная история объекта может привести к&nbsp;судебным искам от&nbsp;третьих лиц или долгам прошлых владельцев.</p>
+          </div>
+          <div class="solution-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Решение: Полный юридический аудит 100% документов</span>
+          </div>
+        </div>
+
+        <div class="pain-card fade-in">
+          <div>
+            <span class="pain-badge">Сложность с банками</span>
+            <h3 class="pain-title">Отказ банка в ипотеке из-за неправильной оценки</h3>
+            <p class="pain-desc">Несертифицированный отчет об&nbsp;оценке не&nbsp;принимается Сбербанком и&nbsp;другими аккредитованными банками.</p>
+          </div>
+          <div class="solution-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Решение: Отчеты по стандартам ФСО и требованию банков</span>
+          </div>
+        </div>
+
+        <div class="pain-card fade-in">
+          <div>
+            <span class="pain-badge">Вопросы наследства</span>
+            <h3 class="pain-title">Проблемы с оформлением прав у нотариуса</h3>
+            <p class="pain-desc">Ошибка в&nbsp;документах на&nbsp;землю или дом затягивает вступление в&nbsp;наследство на&nbsp;долгие месяцы.</p>
+          </div>
+          <div class="solution-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Решение: Сопровождение «под ключ» от риелторов и юристов</span>
+          </div>
+        </div>
+
+        <div class="pain-card fade-in">
+          <div>
+            <span class="pain-badge">Бюрократия и время</span>
+            <h3 class="pain-title">Затянутые сроки продажи и беготня по инстанциям</h3>
+            <p class="pain-desc">Самостоятельный поиск покупателей в&nbsp;Малонаселенном регионе забирает месяцы лишнего времени.</p>
+          </div>
+          <div class="solution-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span>Решение: Активная база покупателей и быстрая подготовка</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SERVICES SECTION (3 CORE DIRECTIONS)
+       ========================================================================== -->
+  <section class="section-padding" id="services">
+    <div class="container">
+      <div class="text-center fade-in">
+        <div class="badge">Направления работы</div>
+        <h2 class="section-title">Три ключевых направления ООО «ДеКоМ»</h2>
+        <p class="section-subtitle">Синергия риелторского агентства, юридического бюро и&nbsp;оценочной компании в&nbsp;одном месте.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- 1. Real Estate Agency -->
+        <div class="service-card fade-in">
+          <div>
+            <div class="service-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+            </div>
+            <h3 class="service-title">Агентство недвижимости</h3>
+            <p class="service-desc">Профессиональная помощь в&nbsp;купли-продаже, обмене и&nbsp;аренде недвижимости в&nbsp;г.&nbsp;Торопец и&nbsp;Торопецком районе.</p>
+            <ul class="service-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Подбор и продажа квартир, домов, коттеджей и участков</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Работа с ипотекой, материнским капиталом и сертификатами</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Подготовка полного пакета документов к госрегистрации</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" onclick="openModal('Агентство недвижимости — бесплатный подбор')">Подобрать объект</button>
+        </div>
+
+        <!-- 2. Legal Services -->
+        <div class="service-card gold-header fade-in">
+          <div>
+            <div class="service-icon" style="background: var(--gold-light); color: var(--gold);">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 3v18M3 9l9-6 9 6M3 9l4 8h6l4-8M3 9h18"></path>
+              </svg>
+            </div>
+            <h3 class="service-title">Юридические услуги</h3>
+            <p class="service-desc">Правовая защита, аудит сделок и&nbsp;представление интересов физических и&nbsp;юридических лиц.</p>
+            <ul class="service-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Составление договоров купли-продажи, дарения, мены, аренды</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Правовая экспертиза документов и проверка чистоты сделки</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Консультации, вступление в наследство, судебные споры</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" onclick="openModal('Юридические услуги — консультация юриста')">Консультация юриста</button>
+        </div>
+
+        <!-- 3. Property Valuation -->
+        <div class="service-card fade-in">
+          <div>
+            <div class="service-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+            <h3 class="service-title">Оценка собственности</h3>
+            <p class="service-desc">Официальные отчеты об&nbsp;оценке всех видов имущества в&nbsp;соответствии с&nbsp;законодательством РФ.</p>
+            <ul class="service-list">
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Оценка недвижимости (квартиры, дома, земля, коммерция)</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Оценка для банков (ипотека Сбербанк и др.), нотариуса и суда</span>
+              </li>
+              <li>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                <span>Оценка автотранспорта, спецтехники и оборудования</span>
+              </li>
+            </ul>
+          </div>
+          <button class="btn btn-outline" onclick="openModal('Заказ независимой оценки')">Заказать оценку</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       WORKFLOW STEPS
+       ========================================================================== -->
+  <section class="section-padding" id="workflow" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="text-center fade-in">
+        <div class="badge">Этапы сотрудничества</div>
+        <h2 class="section-title">Как происходит работа с&nbsp;ООО «ДеКоМ»</h2>
+        <p class="section-subtitle">Прозрачный путь от&nbsp;первого звонка до&nbsp;получения документов или успешного завершения сделки.</p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card fade-in">
+          <div class="step-num">01</div>
+          <h3 class="step-title">Консультация и&nbsp;заявка</h3>
+          <p class="step-desc">Вы&nbsp;связываетесь с&nbsp;нами по&nbsp;телефону или оставляете заявку. Мы&nbsp;уточняем задачу и&nbsp;согласуем удобное время встречи.</p>
+        </div>
+
+        <div class="step-card fade-in">
+          <div class="step-num">02</div>
+          <h3 class="step-title">Анализ документов / Осмотр</h3>
+          <p class="step-desc">Изучаем имеющиеся бумаги на&nbsp;объект, проводим выездной осмотр для оценки или подготавливаем стратегию сделки.</p>
+        </div>
+
+        <div class="step-card fade-in">
+          <div class="step-num">03</div>
+          <h3 class="step-title">Официальный договор</h3>
+          <p class="step-desc">Фиксируем перечень работ, точную стоимость и&nbsp;сроки в&nbsp;договоре. Никаких скрытых комиссии и&nbsp;непредвиденных доплат.</p>
+        </div>
+
+        <div class="step-card fade-in">
+          <div class="step-num">04</div>
+          <h3 class="step-title">Выполнение и результат</h3>
+          <p class="step-desc">Выдаем готовый официальный отчет об&nbsp;оценке, зарегистрированные документы на&nbsp;право собственности или завершаем проект.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ESTIMATOR / QUIZ CALCULATOR
+       ========================================================================== -->
+  <section class="section-padding" id="calculator">
+    <div class="container">
+      <div class="text-center fade-in">
+        <div class="badge">Онлайн-калькулятор</div>
+        <h2 class="section-title">Рассчитайте предварительную стоимость услуг</h2>
+        <p class="section-subtitle">Ответьте на&nbsp;3&nbsp;вопроса, и&nbsp;наш специалист подготовит расчет и&nbsp;свяжется с&nbsp;вами.</p>
+      </div>
+
+      <div class="quiz-card fade-in">
+        <!-- Quiz Step 1 -->
+        <div class="quiz-step active" id="quizStep1">
+          <h3 style="font-size: 20px; font-weight: 700; text-align: center;">Шаг 1: Какая услуга вам требуется?</h3>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Продажа / Покупка недвижимости')">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
+              <span>Покупка / Продажа жилья</span>
+            </div>
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Юридическое сопровождение / Договор')">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+              <span>Юруслуги / Договоры</span>
+            </div>
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Независимая оценка имущества')">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+              <span>Оценка имущества</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quiz Step 2 -->
+        <div class="quiz-step" id="quizStep2">
+          <h3 style="font-size: 20px; font-weight: 700; text-align: center;">Шаг 2: Категория объекта</h3>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Квартира / Комната')">Квартира или комната</div>
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Жилой дом / Дача / Коттедж')">Жилой дом / Дача</div>
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Земельный участок')">Земельный участок</div>
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Коммерческая недвижимость / Транспорт')">Коммерция / Автотранспорт</div>
+          </div>
+        </div>
+
+        <!-- Quiz Step 3 -->
+        <div class="quiz-step" id="quizStep3">
+          <h3 style="font-size: 20px; font-weight: 700; text-align: center;">Шаг 3: Основная цель обращения</h3>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Сделка купли-продажи')">Сделка купли-продажи</div>
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Оценка для банка / Ипотеки')">Для банка (ипотека)</div>
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Оформление наследства у нотариуса')">Оформление наследства</div>
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Судебный спор или экспертное заключение')">Судебный спор / Защита</div>
+          </div>
+        </div>
+
+        <div class="quiz-nav">
+          <button class="btn btn-secondary" id="quizPrevBtn" onclick="prevQuizStep()" style="visibility: hidden;">Назад</button>
+          <span style="font-size: 14px; font-weight: 600; color: var(--text-muted);" id="quizStepIndicator">Шаг 1 из 3</span>
+          <button class="btn btn-primary" id="quizNextBtn" onclick="nextQuizStep()">Далее</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ABOUT US & STATS
+       ========================================================================== -->
+  <section class="section-padding" id="about" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="about-box fade-in">
+        <div>
+          <div class="badge">О компании ООО «ДеКоМ»</div>
+          <h2 class="section-title" style="font-size: 32px;">Ваш надежный партнер в&nbsp;Торопце с&nbsp;высокой репутацией</h2>
+          <p style="color: var(--text-muted); margin-bottom: 20px;">ООО «ДеКоМ» объединяет опытных экспертов в&nbsp;сфере недвижимости, профессиональных юристов и&nbsp;квалифицированных оценщиков.</p>
+          <p style="color: var(--text-muted); margin-bottom: 28px;">Мы отлично знаем региональные особенности рынка Тверской области, что позволяет нам оперативно решать задачи любой сложности.</p>
+          <button class="btn btn-primary" onclick="openModal('Получить индивидуальное предложение')">Получить консультацию</button>
+        </div>
+
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-val">4.9 ★</div>
+            <div class="stat-lbl">Высокий рейтинг в сфере юридических услуг</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">100%</div>
+            <div class="stat-lbl">Официальные договоры и законность</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">ФСО</div>
+            <div class="stat-lbl">Оценка по Федеральным стандартам</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-val">0 ₽</div>
+            <div class="stat-lbl">Скрытых комиссий и незапланированных трат</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FAQ ACCORDION
+       ========================================================================== -->
+  <section class="section-padding" id="faq">
+    <div class="container">
+      <div class="text-center fade-in">
+        <div class="badge">Вопросы и ответы</div>
+        <h2 class="section-title">Ответы на&nbsp;частые вопросы</h2>
+        <p class="section-subtitle">Всё, что вам важно знать перед задействованием наших специалистов.</p>
+      </div>
+
+      <div class="faq-container fade-in">
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span>Принимают&nbsp;ли ваши отчеты об&nbsp;оценке крупные банки (Сбербанк и др.)?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-body">
+            Да. Отчеты об&nbsp;оценке, подготавливаемые специалистами ООО «ДеКоМ», строго соответствуют требованиям Федерального закона «Об оценочной деятельности в РФ» и&nbsp;Федеральным стандартам оценки (ФСО). Документы принимаются всеми банками, нотариусами и&nbsp;судебными инстанциями.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span>Входит&nbsp;ли юридическая проверка объекта в&nbsp;риелторские услуги?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-body">
+            Да, при покупке или продаже объекта через наше агентство мы&nbsp;в&nbsp;обязательном порядке проводим комплексную юридическую проверку (аудит истоков права собственности, отсутствие арестов, дееспособность продавцов, наличие прописанных лиц).
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span>Сколько времени занимает составление отчета об&nbsp;оценке?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-body">
+            В&nbsp;среднем подготовка отчета об&nbsp;оценке жилой недвижимости или земельного участка занимает от&nbsp;1&nbsp;до&nbsp;3&nbsp;рабочих дней с&nbsp;момента проведения осмотра и&nbsp;предоставления необходимого пакета документов.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span>Как оформить заявку, если объект находится за&nbsp;пределами Торопца?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-body">
+            Мы&nbsp;работаем по&nbsp;всему Торопецкому району и&nbsp;близлежащим районам Тверской области. Наши эксперты выезжают на&nbsp;объекты в&nbsp;согласованное время по&nbsp;предварительной договоренности.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CONTACTS & MAP SECTION
+       ========================================================================== -->
+  <section class="section-padding" id="contacts" style="background: var(--bg-secondary);">
+    <div class="container">
+      <div class="contacts-grid fade-in">
+        <div class="contact-card">
+          <div class="badge">Контакты компании</div>
+          <h2 style="font-size: 28px; font-weight: 800; margin-bottom: 24px;">ООО «ДеКоМ» в&nbsp;Торопце</h2>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            </div>
+            <div>
+              <div style="font-size: 13px; color: var(--text-muted);">Телефон для консультаций и записи</div>
+              <a href="tel:+79108381558" style="font-weight: 800; font-size: 20px; color: var(--accent);">+7 (910) 838-15-58</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            </div>
+            <div>
+              <div style="font-size: 13px; color: var(--text-muted);">Адрес офиса</div>
+              <div style="font-weight: 700; font-size: 16px;">Тверская область, г.&nbsp;Торопец, ул.&nbsp;Карла Маркса, д.&nbsp;57А</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+            <div>
+              <div style="font-size: 13px; color: var(--text-muted);">Режим работы</div>
+              <div style="font-weight: 600;">Пн — Пт: 09:00 — 18:00 (Сб, Вс — по записи)</div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" style="width: 100%; margin-top: 12px;" onclick="openModal('Заявка с сайта ООО ДеКоМ')">Написать нам</button>
+        </div>
+
+        <div class="contact-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; background: var(--bg-elevated); text-align: center; padding: 32px;">
+          <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" style="margin-bottom: 16px;">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+            <circle cx="12" cy="10" r="3"></circle>
+          </svg>
+          <h3 style="font-size: 20px; font-weight: 800; margin-bottom: 8px;">Офис ООО «ДеКоМ»</h3>
+          <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 16px;">г.&nbsp;Торопец, ул.&nbsp;Карла Маркса, д.&nbsp;57А</p>
+          <a href="https://yandex.ru/maps/?text=Торопец+ул+Карла+Маркса+57А" target="_blank" class="btn btn-secondary" style="font-size: 13px;">Открыть на Яндекс.Картах</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>&copy; 2026 ООО «ДеКоМ» (г.&nbsp;Торопец). Все права защищены.</div>
+      <div>Недвижимость • Юридические услуги • Оценка собственности</div>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile Contact Bar (<768px) -->
+  <div class="mobile-contact-bar">
+    <div class="mobile-contact-inner">
+      <a href="tel:+79108381558" class="btn btn-secondary" style="padding: 10px; font-size: 14px;">Позвонить</a>
+      <button class="btn btn-primary" style="padding: 10px; font-size: 14px;" onclick="openModal('Быстрый запрос с мобильного')">Написать</button>
+    </div>
+  </div>
+
+  <!-- Online Consultant Widget -->
+  <div class="consultant-widget">
+    <div class="chat-box" id="chatBox">
+      <div class="chat-header">
+        <div class="chat-avatar">Д</div>
+        <div>
+          <div style="font-weight: 700; font-size: 14px;">Консультант «ДеКоМ»</div>
+          <div style="font-size: 11px; opacity: 0.85;">Онлайн • г. Торопец</div>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg-bot">Здравствуйте! Какой вопрос по&nbsp;недвижимости, юруслугам или оценке вас интересует?</div>
+      </div>
+      <div class="chat-quick-replies">
+        <button class="quick-btn" onclick="sendChatMessage('Как заказать оценку?')">Заказать оценку</button>
+        <button class="quick-btn" onclick="sendChatMessage('Купля-продажа дома/квартиры')">Купля-продажа</button>
+        <button class="quick-btn" onclick="sendChatMessage('Нужен юрист')">Нужен юрист</button>
+      </div>
+    </div>
+
+    <button class="consultant-trigger" onclick="toggleChat()" aria-label="Онлайн консультант">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Modal Dialog -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 8px;" id="modalTitle">Заказать консультацию</h3>
+      <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">Оставьте имя и&nbsp;телефон, и&nbsp;специалист ООО «ДеКоМ» перезвонит вам в&nbsp;ближайшее время.</p>
+      
+      <form onsubmit="handleModalSubmit(event)">
+        <div class="form-group">
+          <label class="form-label">Ваше имя</label>
+          <input type="text" class="form-input" placeholder="Иван" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Телефон для связи</label>
+          <input type="tel" class="form-input" placeholder="+7 (910) 838-15-58" required>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       VANILLA JS ENGINE
+       ========================================================================== -->
+  <script>
+    // 1. Theme Engine & LocalStorage
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    themeToggleBtn.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+    });
+
+    // 2. Mobile Drawer Navigation
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+
+    function openDrawer() {
+      mobileDrawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+    }
+
+    function closeDrawer() {
+      mobileDrawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+    }
+
+    hamburgerBtn.addEventListener('click', openDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    // 3. Hero SVG Tab Switcher
+    function switchTab(btn, scheme) {
+      document.querySelectorAll('.preview-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      
+      const svg = document.getElementById('dynamicSvg');
+      if (scheme === 'realty') {
+        svg.innerHTML = `
+          <rect x="20" y="70" width="240" height="140" rx="12" fill="var(--bg-elevated)" stroke="var(--accent)" stroke-width="2"/>
+          <path d="M140 20 L40 70 H240 Z" fill="var(--accent-light)" stroke="var(--accent)" stroke-width="2"/>
+          <rect x="60" y="100" width="45" height="45" rx="6" fill="var(--bg-card)" stroke="var(--border-color)" stroke-width="1.5"/>
+          <rect x="175" y="100" width="45" height="45" rx="6" fill="var(--bg-card)" stroke="var(--border-color)" stroke-width="1.5"/>
+          <rect x="115" y="140" width="50" height="70" rx="4" fill="var(--accent)" opacity="0.85"/>
+          <circle cx="155" cy="175" r="3" fill="#FFFFFF"/>
+          <text x="140" y="225" fill="var(--text-main)" font-weight="700" font-size="12" text-anchor="middle">КУПЛЯ-ПРОДАЖА И ОФОРМЛЕНИЕ</text>
+        `;
+      } else if (scheme === 'legal') {
+        svg.innerHTML = `
+          <rect x="30" y="30" width="220" height="170" rx="10" fill="var(--bg-elevated)" stroke="var(--gold)" stroke-width="2"/>
+          <line x1="60" y1="70" x2="220" y2="70" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round"/>
+          <line x1="60" y1="100" x2="190" y2="100" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round"/>
+          <line x1="60" y1="130" x2="210" y2="130" stroke="var(--text-muted)" stroke-width="2" stroke-linecap="round"/>
+          <circle cx="180" cy="160" r="22" fill="var(--gold-light)" stroke="var(--gold)" stroke-width="2"/>
+          <path d="M172 160 L178 166 L190 154" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <text x="140" y="222" fill="var(--text-main)" font-weight="700" font-size="12" text-anchor="middle">ЮРИДИЧЕСКАЯ ЧИСТОТА СДЕЛОК</text>
+        `;
+      } else {
+        svg.innerHTML = `
+          <rect x="40" y="30" width="200" height="160" rx="12" fill="var(--bg-elevated)" stroke="var(--accent)" stroke-width="2"/>
+          <circle cx="140" cy="95" r="35" fill="var(--accent-light)" stroke="var(--accent)" stroke-width="2"/>
+          <path d="M140 70 V120 M120 95 H160" stroke="var(--accent)" stroke-width="2"/>
+          <rect x="70" y="150" width="140" height="24" rx="6" fill="var(--bg-card)" stroke="var(--border-color)"/>
+          <text x="140" y="166" fill="var(--accent)" font-weight="800" font-size="11" text-anchor="middle">ОТЧЕТ ОБ ОЦЕНКЕ (ФСО)</text>
+          <text x="140" y="215" fill="var(--text-main)" font-weight="700" font-size="12" text-anchor="middle">НЕЗАВИСИМАЯ ОЦЕНКА ИМУЩЕСТВА</text>
+        `;
+      }
+    }
+
+    // 4. Quiz Calculator Engine
+    let currentQuizStep = 1;
+    const quizSelections = { step1: '', step2: '', step3: '' };
+
+    function selectQuizOption(element, value) {
+      const parent = element.parentElement;
+      parent.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+      element.classList.add('selected');
+      quizSelections['step' + currentQuizStep] = value;
+    }
+
+    function updateQuizUI() {
+      document.querySelectorAll('.quiz-step').forEach((step, idx) => {
+        step.classList.toggle('active', idx + 1 === currentQuizStep);
+      });
+
+      document.getElementById('quizPrevBtn').style.visibility = currentQuizStep === 1 ? 'hidden' : 'visible';
+      document.getElementById('quizStepIndicator').innerText = `Шаг ${currentQuizStep} из 3`;
+      
+      const nextBtn = document.getElementById('quizNextBtn');
+      if (currentQuizStep === 3) {
+        nextBtn.innerText = 'Получить расчет в WhatsApp / SMS';
+      } else {
+        nextBtn.innerText = 'Далее';
+      }
+    }
+
+    function nextQuizStep() {
+      if (!quizSelections['step' + currentQuizStep]) {
+        alert('Пожалуйста, выберите вариант перед переходом к следующему шагу.');
+        return;
+      }
+
+      if (currentQuizStep < 3) {
+        currentQuizStep++;
+        updateQuizUI();
+      } else {
+        const msg = `Здравствуйте! Меня интересует расчет стоимости услуг ООО «ДеКоМ» (Торопец):%0A- Услуга: ${quizSelections.step1}%0A- Объект: ${quizSelections.step2}%0A- Цель: ${quizSelections.step3}`;
+        window.open(`https://wa.me/79108381558?text=${msg}`, '_blank');
+      }
+    }
+
+    function prevQuizStep() {
+      if (currentQuizStep > 1) {
+        currentQuizStep--;
+        updateQuizUI();
+      }
+    }
+
+    // 5. FAQ Accordion
+    function toggleFaq(header) {
+      const item = header.parentElement;
+      item.classList.toggle('active');
+    }
+
+    // 6. Online Consultant Chat Widget
+    function toggleChat() {
+      const box = document.getElementById('chatBox');
+      box.classList.toggle('active');
+    }
+
+    function sendChatMessage(text) {
+      const messagesContainer = document.getElementById('chatMessages');
+      
+      const userMsg = document.createElement('div');
+      userMsg.className = 'msg-user';
+      userMsg.innerText = text;
+      messagesContainer.appendChild(userMsg);
+
+      setTimeout(() => {
+        const botMsg = document.createElement('div');
+        botMsg.className = 'msg-bot';
+        if (text.includes('оценку')) {
+          botMsg.innerHTML = 'Для оценки подготовьте свидетельство/выписку ЕГРН и паспорт. Наш юрист проконсультирует вас по телефону 8 (910) 838-15-58.';
+        } else if (text.includes('Купля-продажа')) {
+          botMsg.innerHTML = 'Мы подберем вариант или покупателя, проверим документы и полностью сопроводим сделку в Росреестре.';
+        } else {
+          botMsg.innerHTML = 'Специалист ООО «ДеКоМ» готов проконсультировать вас прямо сейчас. Наберите нас по телефону +7 (910) 838-15-58!';
+        }
+        messagesContainer.appendChild(botMsg);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      }, 550);
+    }
+
+    // 7. Modal Engine
+    function openModal(titleText) {
+      if (titleText) {
+        document.getElementById('modalTitle').innerText = titleText;
+      }
+      document.getElementById('modalOverlay').classList.add('active');
+    }
+
+    function closeModal() {
+      document.getElementById('modalOverlay').classList.remove('active');
+    }
+
+    function handleModalSubmit(event) {
+      event.preventDefault();
+      alert('Спасибо за обращение в ООО «ДеКоМ»! Специалист перезвонит вам в ближайшее время.');
+      closeModal();
+    }
+
+    // 8. IntersectionObserver Scroll Animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
