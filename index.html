@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>ДеКоМ — Агентство недвижимости, юридические услуги и оценка в Торопце</title>
-  <meta name="description" content="ООО «ДеКоМ» в г. Торопец: купля-продажа недвижимости, риелторское и юридическое сопровождение сделок, официальная оценка имущества для банков, нотариуса и суда. Телефон: +7 (910) 838-15-58.">
+  <meta name="description" content="ООО «ДеКоМ» в г. Торопец: купля-продажа недвижимости, юридическое сопровождение сделок, оценка имущества. Цены от 30 000 руб. Договор оферты. Телефон: +7 (910) 838-15-58.">
   
   <!-- Google Fonts: Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -30,7 +30,7 @@
       --accent-light: rgba(30, 58, 138, 0.08);
       --accent-glow: rgba(30, 58, 138, 0.25);
       
-      --gold: #D97706; /* Accent Gold for Seals & Highlights */
+      --gold: #D97706; /* Accent Gold */
       --gold-light: rgba(217, 119, 6, 0.1);
       
       --border-color: #E2E8F0;
@@ -134,6 +134,20 @@
       font-weight: 700;
       letter-spacing: 0.5px;
       text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .price-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      background: var(--gold-light);
+      color: var(--gold);
+      border: 1px solid rgba(217, 119, 6, 0.3);
+      border-radius: var(--radius-md);
+      font-size: 14px;
+      font-weight: 800;
       margin-bottom: 16px;
     }
 
@@ -627,7 +641,7 @@
     }
 
     /* ==========================================================================
-       5. DETAILED SERVICES (3 CORE SECTIONS)
+       5. DETAILED SERVICES (3 CORE SECTIONS + PRICES FROM 30k)
        ========================================================================== */
     .services-grid {
       display: grid;
@@ -677,7 +691,7 @@
       align-items: center;
       justify-content: center;
       color: var(--accent);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .service-title {
@@ -689,12 +703,12 @@
     .service-desc {
       font-size: 15px;
       color: var(--text-muted);
-      margin-bottom: 24px;
+      margin-bottom: 20px;
     }
 
     .service-list {
       list-style: none;
-      margin-bottom: 32px;
+      margin-bottom: 28px;
     }
 
     .service-list li {
@@ -1124,7 +1138,7 @@
       color: var(--accent);
     }
 
-    /* Modal Dialog */
+    /* Modal Dialogs */
     .modal-overlay {
       position: fixed;
       inset: 0;
@@ -1158,6 +1172,12 @@
       transition: transform 0.3s ease;
     }
 
+    .modal-card.wide-modal {
+      max-width: 720px;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
     .modal-overlay.active .modal-card {
       transform: translateY(0);
     }
@@ -1174,7 +1194,7 @@
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 18px;
     }
 
     .form-label {
@@ -1198,6 +1218,31 @@
     .form-input:focus {
       border-color: var(--accent);
       box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    .form-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .form-checkbox input {
+      margin-top: 3px;
+    }
+
+    .offer-text {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .offer-text h4 {
+      font-size: 16px;
+      color: var(--text-main);
+      margin: 18px 0 8px 0;
     }
   </style>
 </head>
@@ -1223,7 +1268,7 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#services">Услуги</a></li>
+        <li><a href="#services">Услуги и цены</a></li>
         <li><a href="#pains">Решения</a></li>
         <li><a href="#workflow">Процесс</a></li>
         <li><a href="#calculator">Калькулятор</a></li>
@@ -1278,7 +1323,7 @@
         <button class="modal-close" onclick="closeDrawer()">&times;</button>
       </div>
       <ul class="drawer-nav">
-        <li><a href="#services" onclick="closeDrawer()">Услуги</a></li>
+        <li><a href="#services" onclick="closeDrawer()">Услуги и цены</a></li>
         <li><a href="#pains" onclick="closeDrawer()">Решения</a></li>
         <li><a href="#workflow" onclick="closeDrawer()">Процесс</a></li>
         <li><a href="#calculator" onclick="closeDrawer()">Калькулятор</a></li>
@@ -1301,21 +1346,21 @@
       <div class="hero-content fade-in">
         <div class="badge">ООО «ДеКоМ» • г. Торопец</div>
         <h1>Недвижимость, юридические услуги и&nbsp;оценка имущества в&nbsp;Торопце</h1>
-        <p>Полный комплекс профессиональных услуг от&nbsp;опытной команды: помощь в&nbsp;купле-продаже жилья и&nbsp;земли, правовая защита сделок и&nbsp;официальная независимая оценка для&nbsp;банков, нотариуса и&nbsp;суда.</p>
+        <p>Полный комплекс профессиональных услуг от&nbsp;опытной команды: помощь в&nbsp;купле-продаже жилья и&nbsp;земли, правовая защита сделок и&nbsp;официальная независимая оценка для&nbsp;банков, нотариуса и&nbsp;суда. Стоимость комплексных услуг — <strong>от&nbsp;30&nbsp;000&nbsp;рублей</strong> по&nbsp;официальному договору публичной оферты.</p>
         
         <div class="hero-actions">
-          <a href="#calculator" class="btn btn-primary">Рассчитать стоимость</a>
+          <a href="#calculator" class="btn btn-primary">Рассчитать стоимость от 30 000 ₽</a>
           <button class="btn btn-secondary" onclick="openModal('Бесплатная первичная консультация')">Бесплатная консультация</button>
         </div>
 
         <div class="hero-features">
           <div class="hero-feature-item">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Официальный договор</span>
+            <span>Цены от 30 000 ₽</span>
           </div>
           <div class="hero-feature-item">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>100% юридическая чистота</span>
+            <span>Договор публичной оферты</span>
           </div>
           <div class="hero-feature-item">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -1356,7 +1401,7 @@
       <div class="text-center fade-in">
         <div class="badge">Безопасность сделок</div>
         <h2 class="section-title">Каких рисков вы&nbsp;избегаете при&nbsp;обращении в&nbsp;«ДеКоМ»</h2>
-        <p class="section-subtitle">Сделки с&nbsp;недвижимостью и&nbsp;оценка требуют безупречной точности. Мы&nbsp;берем всю ответственность на&nbsp;себя.</p>
+        <p class="section-subtitle">Сделки с&nbsp;недвижимостью и&nbsp;оценка требуют безупречной точности. Мы&nbsp;берем всю ответственность на&nbsp;себя по&nbsp;официальному договору оферты.</p>
       </div>
 
       <div class="pains-grid">
@@ -1368,7 +1413,7 @@
           </div>
           <div class="solution-badge">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Решение: Полный юридический аудит 100% документов</span>
+            <span>Решение: Полный юридический аудит от 30 000 ₽</span>
           </div>
         </div>
 
@@ -1380,7 +1425,7 @@
           </div>
           <div class="solution-badge">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Решение: Отчеты по стандартам ФСО и требованию банков</span>
+            <span>Решение: Отчеты по стандартам ФСО от 30 000 ₽</span>
           </div>
         </div>
 
@@ -1392,7 +1437,7 @@
           </div>
           <div class="solution-badge">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Решение: Сопровождение «под ключ» от риелторов и юристов</span>
+            <span>Решение: Сопровождение «под ключ» от 30 000 ₽</span>
           </div>
         </div>
 
@@ -1404,7 +1449,7 @@
           </div>
           <div class="solution-badge">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Решение: Активная база покупателей и быстрая подготовка</span>
+            <span>Решение: Быстрая подготовка и ведение сделки от 30 000 ₽</span>
           </div>
         </div>
       </div>
@@ -1412,14 +1457,14 @@
   </section>
 
   <!-- ==========================================================================
-       SERVICES SECTION (3 CORE DIRECTIONS)
+       SERVICES SECTION (3 CORE DIRECTIONS + PRICES FROM 30k)
        ========================================================================== -->
   <section class="section-padding" id="services">
     <div class="container">
       <div class="text-center fade-in">
-        <div class="badge">Направления работы</div>
-        <h2 class="section-title">Три ключевых направления ООО «ДеКоМ»</h2>
-        <p class="section-subtitle">Синергия риелторского агентства, юридического бюро и&nbsp;оценочной компании в&nbsp;одном месте.</p>
+        <div class="badge">Направления работы и стоимости</div>
+        <h2 class="section-title">Услуги и&nbsp;ориентировочные цены ООО «ДеКоМ»</h2>
+        <p class="section-subtitle">Официальное оказание риелторских, юридических и&nbsp;оценочных услуг по&nbsp;договору оферты. Стоимость комплексного сопровождения — <strong>от&nbsp;30&nbsp;000&nbsp;рублей</strong>.</p>
       </div>
 
       <div class="services-grid">
@@ -1432,25 +1477,25 @@
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
               </svg>
             </div>
-            <div style="font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 6px;">ОТ 30 000 ₽</div>
+            <span class="price-badge">Цена: от 30 000 ₽</span>
             <h3 class="service-title">Агентство недвижимости</h3>
-            <p class="service-desc">Профессиональная помощь в&nbsp;купли-продаже, обмене и&nbsp;аренде недвижимости в&nbsp;г.&nbsp;Торопец и&nbsp;Торопецком районе.</p>
+            <p class="service-desc">Полный цикл помощи в&nbsp;покупке, продаже, обмене и&nbsp;аренде объектов в&nbsp;г.&nbsp;Торопец и&nbsp;Торопецком районе.</p>
             <ul class="service-list">
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Подбор и продажа квартир, домов, коттеджей и участков</span>
+                <span>Подбор и продажа квартир, домов и земельных участков</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Работа с ипотекой, материнским капиталом и сертификатами</span>
+                <span>Сопровождение ипотеки (Сбербанк и др.) и материнского капитала</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Подготовка полного пакета документов к госрегистрации</span>
+                <span>Сбор пакета документов и регистрация права в Росреестре</span>
               </li>
             </ul>
           </div>
-          <button class="btn btn-outline" onclick="openModal('Агентство недвижимости — от 30 000 ₽')">Подобрать объект</button>
+          <button class="btn btn-outline" onclick="openModal('Агентство недвижимости — от 30 000 ₽')">Подобрать объект от 30 000 ₽</button>
         </div>
 
         <!-- 2. Legal Services -->
@@ -1461,9 +1506,9 @@
                 <path d="M12 3v18M3 9l9-6 9 6M3 9l4 8h6l4-8M3 9h18"></path>
               </svg>
             </div>
-            <div style="font-size: 13px; font-weight: 800; color: var(--gold); margin-bottom: 6px;">ОТ 30 000 ₽</div>
+            <span class="price-badge">Цена: от 30 000 ₽</span>
             <h3 class="service-title">Юридические услуги</h3>
-            <p class="service-desc">Правовая защита, аудит сделок и&nbsp;представление интересов физических и&nbsp;юридических лиц.</p>
+            <p class="service-desc">Правовой аудит сделок, разработка сложных договоров и&nbsp;защита интересов доверителей в&nbsp;суде.</p>
             <ul class="service-list">
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
@@ -1471,15 +1516,15 @@
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Правовая экспертиза документов и проверка чистоты сделки</span>
+                <span>Юридическая экспертиза чистоты объектов и истории собственников</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Консультации, вступление в наследство, судебные споры</span>
+                <span>Оформление наследства, разрешение споров у нотариуса и в суде</span>
               </li>
             </ul>
           </div>
-          <button class="btn btn-outline" onclick="openModal('Юридические услуги — от 30 000 ₽')">Консультация юриста</button>
+          <button class="btn btn-outline" onclick="openModal('Юридические услуги — от 30 000 ₽')">Консультация юриста от 30 000 ₽</button>
         </div>
 
         <!-- 3. Property Valuation -->
@@ -1494,25 +1539,25 @@
                 <polyline points="10 9 9 9 8 9"></polyline>
               </svg>
             </div>
-            <div style="font-size: 13px; font-weight: 800; color: var(--accent); margin-bottom: 6px;">ОТ 30 000 ₽</div>
+            <span class="price-badge">Цена: от 30 000 ₽</span>
             <h3 class="service-title">Оценка собственности</h3>
-            <p class="service-desc">Официальные отчеты об&nbsp;оценке всех видов имущества в&nbsp;соответствии с&nbsp;законодательством РФ.</p>
+            <p class="service-desc">Официальные экспертные отчеты об&nbsp;оценке квартир, домов, земли, транспорта и&nbsp;бизнеса по&nbsp;ФСО.</p>
             <ul class="service-list">
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Оценка недвижимости (квартиры, дома, земля, коммерция)</span>
+                <span>Оценка жилой и коммерческой недвижимости, земельных участков</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Оценка для банков (ипотека Сбербанк и др.), нотариуса и суда</span>
+                <span>Отчеты для ипотеки (Сбербанк и др.), нотариуса и судебных органов</span>
               </li>
               <li>
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Оценка автотранспорта, спецтехники и оборудования</span>
+                <span>Независимая оценка автотранспорта и оборудования</span>
               </li>
             </ul>
           </div>
-          <button class="btn btn-outline" onclick="openModal('Независимая оценка — от 30 000 ₽')">Заказать оценку</button>
+          <button class="btn btn-outline" onclick="openModal('Заказ независимой оценки — от 30 000 ₽')">Заказать оценку от 30 000 ₽</button>
         </div>
       </div>
     </div>
@@ -1526,32 +1571,32 @@
       <div class="text-center fade-in">
         <div class="badge">Этапы сотрудничества</div>
         <h2 class="section-title">Как происходит работа с&nbsp;ООО «ДеКоМ»</h2>
-        <p class="section-subtitle">Прозрачный путь от&nbsp;первого звонка до&nbsp;получения документов или успешного завершения сделки.</p>
+        <p class="section-subtitle">Прозрачный путь от&nbsp;первого звонка до&nbsp;получения результатов с&nbsp;оплатой от&nbsp;30&nbsp;000&nbsp;рублей по&nbsp;договору.</p>
       </div>
 
       <div class="steps-grid">
         <div class="step-card fade-in">
           <div class="step-num">01</div>
           <h3 class="step-title">Консультация и&nbsp;заявка</h3>
-          <p class="step-desc">Вы&nbsp;связываетесь с&nbsp;нами по&nbsp;телефону или оставляете заявку. Мы&nbsp;уточняем задачу и&nbsp;согласуем удобное время встречи.</p>
+          <p class="step-desc">Вы&nbsp;связываетесь с&nbsp;нами по&nbsp;телефону или оставляете заявку. Мы&nbsp;уточняем задачу и&nbsp;согласуем встречу.</p>
         </div>
 
         <div class="step-card fade-in">
           <div class="step-num">02</div>
-          <h3 class="step-title">Анализ документов / Осмотр</h3>
-          <p class="step-desc">Изучаем имеющиеся бумаги на&nbsp;объект, проводим выездной осмотр для оценки или подготавливаем стратегию сделки.</p>
+          <h3 class="step-title">Анализ и&nbsp;расчет цены</h3>
+          <p class="step-desc">Изучаем имеющиеся бумаги на&nbsp;объект, вычисляем точный объем работ и&nbsp;формируем смету (от&nbsp;30&nbsp;000&nbsp;₽).</p>
         </div>
 
         <div class="step-card fade-in">
           <div class="step-num">03</div>
-          <h3 class="step-title">Официальный договор</h3>
-          <p class="step-desc">Фиксируем перечень работ, точную стоимость и&nbsp;сроки в&nbsp;договоре. Никаких скрытых комиссии и&nbsp;непредвиденных доплат.</p>
+          <h3 class="step-title">Договор оферты</h3>
+          <p class="step-desc">Фиксируем перечень услуг, точную стоимость и&nbsp;сроки в&nbsp;договоре публичной оферты. Без скрытых платежей.</p>
         </div>
 
         <div class="step-card fade-in">
           <div class="step-num">04</div>
           <h3 class="step-title">Выполнение и результат</h3>
-          <p class="step-desc">Выдаем готовый официальный отчет об&nbsp;оценке, зарегистрированные документы на&nbsp;право собственности или завершаем проект.</p>
+          <p class="step-desc">Передаем готовый отчет об&nbsp;оценке, документы с&nbsp;госрегистрации права или защищаем ваши интересы в&nbsp;суде.</p>
         </div>
       </div>
     </div>
@@ -1565,7 +1610,7 @@
       <div class="text-center fade-in">
         <div class="badge">Онлайн-калькулятор</div>
         <h2 class="section-title">Рассчитайте предварительную стоимость услуг</h2>
-        <p class="section-subtitle">Ответьте на&nbsp;3&nbsp;вопроса, и&nbsp;наш специалист подготовит расчет и&nbsp;свяжется с&nbsp;вами.</p>
+        <p class="section-subtitle">Ответьте на&nbsp;3&nbsp;вопроса, и&nbsp;наш специалист подготовит расчет (базовые услуги от&nbsp;30&nbsp;000&nbsp;руб.).</p>
       </div>
 
       <div class="quiz-card fade-in">
@@ -1573,17 +1618,20 @@
         <div class="quiz-step active" id="quizStep1">
           <h3 style="font-size: 20px; font-weight: 700; text-align: center;">Шаг 1: Какая услуга вам требуется?</h3>
           <div class="quiz-options">
-            <div class="quiz-option" onclick="selectQuizOption(this, 'Продажа / Покупка недвижимости')">
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Продажа / Покупка недвижимости (от 30 000 ₽)')">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
               <span>Покупка / Продажа жилья</span>
+              <span style="font-size: 12px; color: var(--gold); font-weight: 700;">от 30 000 ₽</span>
             </div>
-            <div class="quiz-option" onclick="selectQuizOption(this, 'Юридическое сопровождение / Договор')">
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Юридическое сопровождение / Договор (от 30 000 ₽)')">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
               <span>Юруслуги / Договоры</span>
+              <span style="font-size: 12px; color: var(--gold); font-weight: 700;">от 30 000 ₽</span>
             </div>
-            <div class="quiz-option" onclick="selectQuizOption(this, 'Независимая оценка имущества')">
+            <div class="quiz-option" onclick="selectQuizOption(this, 'Независимая оценка имущества (от 30 000 ₽)')">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
               <span>Оценка имущества</span>
+              <span style="font-size: 12px; color: var(--gold); font-weight: 700;">от 30 000 ₽</span>
             </div>
           </div>
         </div>
@@ -1629,26 +1677,26 @@
           <div class="badge">О компании ООО «ДеКоМ»</div>
           <h2 class="section-title" style="font-size: 32px;">Ваш надежный партнер в&nbsp;Торопце с&nbsp;высокой репутацией</h2>
           <p style="color: var(--text-muted); margin-bottom: 20px;">ООО «ДеКоМ» объединяет опытных экспертов в&nbsp;сфере недвижимости, профессиональных юристов и&nbsp;квалифицированных оценщиков.</p>
-          <p style="color: var(--text-muted); margin-bottom: 28px;">Мы отлично знаем региональные особенности рынка Тверской области, что позволяет нам оперативно решать задачи любой сложности.</p>
-          <button class="btn btn-primary" onclick="openModal('Получить индивидуальное предложение')">Получить консультацию</button>
+          <p style="color: var(--text-muted); margin-bottom: 28px;">Все услуги оказываются строго по&nbsp;официальному договору публичной оферты с&nbsp;прозрачными тарифами от&nbsp;30&nbsp;000&nbsp;рублей.</p>
+          <button class="btn btn-primary" onclick="openModal('Консультация по договору оферты (от 30 000 ₽)')">Получить консультацию</button>
         </div>
 
         <div class="about-stats">
           <div class="stat-item">
-            <div class="stat-val">4.9 ★</div>
-            <div class="stat-lbl">Высокий рейтинг в сфере юридических услуг</div>
+            <div class="stat-val">от 30к ₽</div>
+            <div class="stat-lbl">Доступная базовая стоимость комплексных услуг</div>
           </div>
           <div class="stat-item">
             <div class="stat-val">100%</div>
-            <div class="stat-lbl">Официальные договоры и законность</div>
+            <div class="stat-lbl">Договор публичной оферты и законность</div>
           </div>
           <div class="stat-item">
             <div class="stat-val">ФСО</div>
             <div class="stat-lbl">Оценка по Федеральным стандартам</div>
           </div>
           <div class="stat-item">
-            <div class="stat-val">0 ₽</div>
-            <div class="stat-lbl">Скрытых комиссий и незапланированных трат</div>
+            <div class="stat-val">4.9 ★</div>
+            <div class="stat-lbl">Высокий рейтинг у клиентов в Торопце</div>
           </div>
         </div>
       </div>
@@ -1669,6 +1717,26 @@
       <div class="faq-container fade-in">
         <div class="faq-item">
           <div class="faq-header" onclick="toggleFaq(this)">
+            <span>От скольки начинается стоимость ваших услуг?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-body">
+            Ориентировочная минимальная стоимость выполнения комплексных услуг по&nbsp;сопровождению сделок, юруслугам или подготовке экспертной оценки составляет от&nbsp;30&nbsp;000&nbsp;рублей. Точная стоимость рассчитывается после первичного анализа документов.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
+            <span>Где ознакомиться с договором публичной оферты?</span>
+            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <div class="faq-body">
+            Договор публичной оферты доступен прямо на&nbsp;нашем сайте в&nbsp;подвале (футере) и&nbsp;по&nbsp;ссылке <a href="javascript:openOfferModal()" style="color: var(--accent); font-weight: 700; text-decoration: underline;">Ознакомиться с офертой</a>, а&nbsp;также в&nbsp;нашем офисе по&nbsp;адресу г.&nbsp;Торопец, ул.&nbsp;Карла Маркса, д.&nbsp;57А.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-header" onclick="toggleFaq(this)">
             <span>Принимают&nbsp;ли ваши отчеты об&nbsp;оценке крупные банки (Сбербанк и др.)?</span>
             <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </div>
@@ -1684,26 +1752,6 @@
           </div>
           <div class="faq-body">
             Да, при покупке или продаже объекта через наше агентство мы&nbsp;в&nbsp;обязательном порядке проводим комплексную юридическую проверку (аудит истоков права собственности, отсутствие арестов, дееспособность продавцов, наличие прописанных лиц).
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-header" onclick="toggleFaq(this)">
-            <span>Сколько времени занимает составление отчета об&nbsp;оценке?</span>
-            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="faq-body">
-            В&nbsp;среднем подготовка отчета об&nbsp;оценке жилой недвижимости или земельного участка занимает от&nbsp;1&nbsp;до&nbsp;3&nbsp;рабочих дней с&nbsp;момента проведения осмотра и&nbsp;предоставления необходимого пакета документов.
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <div class="faq-header" onclick="toggleFaq(this)">
-            <span>Как оформить заявку, если объект находится за&nbsp;пределами Торопца?</span>
-            <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
-          </div>
-          <div class="faq-body">
-            Мы&nbsp;работаем по&nbsp;всему Торопецкому району и&nbsp;близлежащим районам Тверской области. Наши эксперты выезжают на&nbsp;объекты в&nbsp;согласованное время по&nbsp;предварительной договоренности.
           </div>
         </div>
       </div>
@@ -1771,8 +1819,7 @@
     <div class="container footer-inner">
       <div>&copy; 2026 ООО «ДеКоМ» (г.&nbsp;Торопец). Все права защищены.</div>
       <div>
-        <span>Недвижимость • Юридические услуги • Оценка</span> | 
-        <a href="offer.html" style="text-decoration: underline; color: var(--accent); font-weight: 600;">Договор оферты</a>
+        <a href="javascript:openOfferModal()" style="text-decoration: underline; font-weight: 600;">Договор публичной оферты</a> • Услуги от 30 000 ₽
       </div>
     </div>
   </footer>
@@ -1781,7 +1828,7 @@
   <div class="mobile-contact-bar">
     <div class="mobile-contact-inner">
       <a href="tel:+79108381558" class="btn btn-secondary" style="padding: 10px; font-size: 14px;">Позвонить</a>
-      <button class="btn btn-primary" style="padding: 10px; font-size: 14px;" onclick="openModal('Быстрый запрос с мобильного')">Написать</button>
+      <button class="btn btn-primary" style="padding: 10px; font-size: 14px;" onclick="openModal('Быстрый запрос с мобильного')">Написать от 30к ₽</button>
     </div>
   </div>
 
@@ -1796,11 +1843,11 @@
         </div>
       </div>
       <div class="chat-messages" id="chatMessages">
-        <div class="msg-bot">Здравствуйте! Какой вопрос по&nbsp;недвижимости, юруслугам или оценке вас интересует?</div>
+        <div class="msg-bot">Здравствуйте! Вопросы по&nbsp;недвижимости, юруслугам или оценке от&nbsp;30&nbsp;000&nbsp;рублей по&nbsp;договору оферты?</div>
       </div>
       <div class="chat-quick-replies">
-        <button class="quick-btn" onclick="sendChatMessage('Как заказать оценку?')">Заказать оценку</button>
-        <button class="quick-btn" onclick="sendChatMessage('Купля-продажа дома/квартиры')">Купля-продажа</button>
+        <button class="quick-btn" onclick="sendChatMessage('Сколько стоят услуги?')">Цены от 30 000 ₽</button>
+        <button class="quick-btn" onclick="sendChatMessage('Договор оферты')">Договор оферты</button>
         <button class="quick-btn" onclick="sendChatMessage('Нужен юрист')">Нужен юрист</button>
       </div>
     </div>
@@ -1812,12 +1859,12 @@
     </button>
   </div>
 
-  <!-- Modal Dialog -->
+  <!-- Main Lead Modal Dialog -->
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal-card">
       <button class="modal-close" onclick="closeModal()">&times;</button>
       <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 8px;" id="modalTitle">Заказать консультацию</h3>
-      <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">Оставьте имя и&nbsp;телефон, и&nbsp;специалист ООО «ДеКоМ» перезвонит вам в&nbsp;ближайшее время.</p>
+      <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Оставив заявку, вы&nbsp;получаете детальный расчет стоимости работ (базовые тарифы от&nbsp;30&nbsp;000&nbsp;руб.).</p>
       
       <form onsubmit="handleModalSubmit(event)">
         <div class="form-group">
@@ -1828,8 +1875,48 @@
           <label class="form-label">Телефон для связи</label>
           <input type="tel" class="form-input" placeholder="+7 (910) 838-15-58" required>
         </div>
+
+        <div class="form-checkbox">
+          <input type="checkbox" id="modalOfferConsent" required checked>
+          <label for="modalOfferConsent">
+            Нажимая кнопку, я принимаю условия <a href="javascript:openOfferModal()" style="color: var(--accent); text-decoration: underline;">Договора публичной оферты</a> и даю согласие на обработку персональных данных.
+          </label>
+        </div>
+
         <button type="submit" class="btn btn-primary" style="width: 100%;">Отправить заявку</button>
       </form>
+    </div>
+  </div>
+
+  <!-- Public Offer Agreement Modal Dialog -->
+  <div class="modal-overlay" id="offerModalOverlay">
+    <div class="modal-card wide-modal">
+      <button class="modal-close" onclick="closeOfferModal()">&times;</button>
+      <div class="offer-text">
+        <h3 style="font-size: 22px; font-weight: 800; margin-bottom: 16px; color: var(--text-main);">Договор публичной оферты оказания услуг</h3>
+        <p><strong>Исполнитель:</strong> ООО «ДеКоМ», г. Торопец, ул. Карла Маркса, д. 57А, телефон +7 (910) 838-15-58.</p>
+        
+        <h4>1. Общие положения</h4>
+        <p>1.1. Настоящий документ является официальным предложением (публичной офертой в соответствии со ст. 437 Гражданского кодекса Российской Федерации) ООО «ДеКоМ» по оказанию риелторских услуг, юридического сопровождения сделок с недвижимостью и независимой оценки имущества.</p>
+        <p>1.2. Акцептом настоящей оферты является оформление заявки на сайте, подписание отдельного договора или оплата оказываемых услуг Заказчиком.</p>
+
+        <h4>2. Предмет договора и стоимости услуг</h4>
+        <p>2.1. Исполнитель обязуется оказать выбранные Заказчиком риелторские, юридические или оценочные услуги, а Заказчик обязуется принять и оплатить их.</p>
+        <p>2.2. Ориентировочная минимальная базовая стоимость выполнения комплексных услуг составляет <strong>от 30 000 (тридцати тысяч) рублей</strong>. Точный размер вознаграждения согласовывается индивидуально в зависимости от состава и сложности задачи.</p>
+
+        <h4>3. Права и обязанности сторон</h4>
+        <p>3.1. Исполнитель обязуется качественно и в согласованные сроки оказать услуги, строго соблюдая законодательство Российской Федерации, Федеральные стандарты оценки (ФСО) и требования Росреестра.</p>
+        <p>3.2. Заказчик обязуется предоставить достоверную информацию и комплект документов, необходимых для выполнения работ.</p>
+
+        <h4>4. Конфиденциальность и персональные данные</h4>
+        <p>4.1. Исполнитель гарантирует сохранность персональных данных Заказчика в соответствии с Федеральным законом № 152-ФЗ «О персональных данных».</p>
+
+        <h4>5. Реквизиты Исполнителя</h4>
+        <p>ООО «ДеКоМ»<br>Адрес: 172870, Тверская обл., г. Торопец, ул. Карла Маркса, д. 57А<br>Телефон: +7 (910) 838-15-58</p>
+      </div>
+      <div style="margin-top: 24px; text-align: right;">
+        <button class="btn btn-primary" onclick="closeOfferModal()">Понятно, закрыть</button>
+      </div>
     </div>
   </div>
 
@@ -1926,7 +2013,7 @@
       
       const nextBtn = document.getElementById('quizNextBtn');
       if (currentQuizStep === 3) {
-        nextBtn.innerText = 'Получить расчет в WhatsApp / SMS';
+        nextBtn.innerText = 'Получить расчет от 30 000 ₽ в WhatsApp';
       } else {
         nextBtn.innerText = 'Далее';
       }
@@ -1942,7 +2029,7 @@
         currentQuizStep++;
         updateQuizUI();
       } else {
-        const msg = `Здравствуйте! Меня интересует расчет стоимости услуг ООО «ДеКоМ» (Торопец):%0A- Услуга: ${quizSelections.step1}%0A- Объект: ${quizSelections.step2}%0A- Цель: ${quizSelections.step3}`;
+        const msg = `Здравствуйте! Меня интересует расчет стоимости услуг ООО «ДеКоМ» (от 30 000 ₽):%0A- Услуга: ${quizSelections.step1}%0A- Объект: ${quizSelections.step2}%0A- Цель: ${quizSelections.step3}`;
         window.open(`https://wa.me/79108381558?text=${msg}`, '_blank');
       }
     }
@@ -1977,12 +2064,12 @@
       setTimeout(() => {
         const botMsg = document.createElement('div');
         botMsg.className = 'msg-bot';
-        if (text.includes('оценку')) {
-          botMsg.innerHTML = 'Для оценки подготовьте свидетельство/выписку ЕГРН и паспорт. Наш юрист проконсультирует вас по телефону 8 (910) 838-15-58.';
-        } else if (text.includes('Купля-продажа')) {
-          botMsg.innerHTML = 'Мы подберем вариант или покупателя, проверим документы и полностью сопроводим сделку в Росреестре.';
+        if (text.includes('30 000')) {
+          botMsg.innerHTML = 'Базовая стоимость наших комплексных услуг по недвижимости, юриспруденции и оценке начинается от 30 000 рублей по договору публичной оферты.';
+        } else if (text.includes('оферты')) {
+          botMsg.innerHTML = 'Вы можете ознакомиться с текстом Договора публичной оферты в подвале сайта или открыть специальное окно оферты.';
         } else {
-          botMsg.innerHTML = 'Специалист ООО «ДеКоМ» готов проконсультировать вас прямо сейчас. Наберите нас по телефону +7 (910) 838-15-58!';
+          botMsg.innerHTML = 'Специалист ООО «ДеКоМ» проконсультирует вас по всем вопросам. Наберите нас по телефону +7 (910) 838-15-58!';
         }
         messagesContainer.appendChild(botMsg);
         messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -2001,9 +2088,17 @@
       document.getElementById('modalOverlay').classList.remove('active');
     }
 
+    function openOfferModal() {
+      document.getElementById('offerModalOverlay').classList.add('active');
+    }
+
+    function closeOfferModal() {
+      document.getElementById('offerModalOverlay').classList.remove('active');
+    }
+
     function handleModalSubmit(event) {
       event.preventDefault();
-      alert('Спасибо за обращение в ООО «ДеКоМ»! Специалист перезвонит вам в ближайшее время.');
+      alert('Спасибо за обращение в ООО «ДеКоМ»! Специалист свяжется с вами по договору оферты (базовая стоимость от 30 000 руб.).');
       closeModal();
     }
 
